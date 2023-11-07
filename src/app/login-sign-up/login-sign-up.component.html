@@ -1,0 +1,94 @@
+<div *ngIf="!isSignedIn">
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form (ngSubmit)="onSignUpFormSubmit()" #signupForm="ngForm">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+        <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form (ngSubmit)="onSignInFormSubmit()" #signinForm="ngForm">
+        <h1>Sign in</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your account</span>
+        <input type="email" placeholder="Email" [(ngModel)]="signinEmail" name="signinEmail" required />
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required autocomplete="current-password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us, please login with your personal info</p>
+          <button class="ghost" id="signIn" (click)="toggleSignInSignUp()">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start the journey with us</p>
+          <button class="ghost" id="signUp" (click)="toggleSignInSignUp()">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="isSignedIn">
+  <div class="header-text">
+    <h1>Welcome</h1>
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+
+    <ul>
+      <li><h6 routerLink="/add-employees" routerLinkActive="active">Add Employees</h6></li>
+      <li><h6  routerLink="/view-employees" routerLinkActive="active">View Employees</h6></li>
+      <li><h6 routerLink="/multiple-entries" routerLinkActive="active">Multiple Entries</h6></li>
+    </ul>
+  </div>
+
+  <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span>
+
+  <!-- <div class="header-text">
+    <h1>Welcome</h1>
+  </div> -->
+  <div class="content">
+    <main role="main" class="center-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+
+<script>
+  function openNav() {
+    console.log('Opening Sidenav');
+    const sidenav = document.getElementById('mySidenav');
+    if (sidenav) {
+      sidenav.style.width = '250px';
+    }
+  }
+
+  function closeNav() {
+    console.log('Closing Sidenav');
+    const sidenav = document.getElementById('mySidenav');
+    if (sidenav) {
+      sidenav.style.width = '0';
+    }
+  }
+</script>

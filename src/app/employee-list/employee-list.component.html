@@ -1,0 +1,135 @@
+<div>
+  <div *ngIf="employees">
+    <div class="d-flex justify-content-center">
+      <div *ngIf="this.loader == true" class="spinner-border" role="status">
+        <span class="sr-only" id="loading"></span>
+      </div>
+    </div>
+    <h2 style="text-align: center">Employee List</h2>
+
+    <div class="panel-body">
+      <!-- <table id="dataTable" datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"> -->
+        <table id="dataTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+
+        <!-- <table class="row-border hover" > -->
+        <thead>
+          <tr>
+            <th width="19%" scope="col" >Employee id</th>
+            <th width="22%" scope="col" >Name</th>
+            <th width="13%" scope="col" >Phone Number</th>
+            <th width="22%" scope="col" >Salary</th>
+            <th width="13%" scope="col" >Job Title</th>
+           <th width="25%" align="center" scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>{{ emp.empId}}</td>
+            <td>{{ emp.empName }}</td>
+            <td>{{ emp.empPhno }}</td>
+            <td>{{ emp.empSal }}</td>
+            <td>{{ emp.jobTitle }}</td>
+            <td>
+              <button type="button" (click)="updateEmployee(emp)" class="gg" data-bs-toggle="modal"
+                data-bs-target="#exampleModalLong">Edit</button>
+              <!-- <button type="button" (click)="deleteEmployee(emp.empId)" class="btn btn-danger mx-3" data-toggle="modal" data-target="#exampleModal">Delete</button> -->
+              <!-- Button trigger modal -->
+              
+              <button type="button" class="gg" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delEmp(emp)">
+                Delete
+              </button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are You sure You want to delete?
+        </div>
+        <div class="modal-footer">
+          <button type="button"  class="btn btn-secondary"
+            data-bs-dismiss="modal" (click)="deleteEmployee()">Remove</button>
+          <button type="button" id="cancel" class="close" data-bs-dismiss="modal" class="btn btn-primary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Update Modal -->
+<div class="modal " id="exampleModalLong"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Employee Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="empId">Employee Id</label>
+            <input type="number" class="form-control" id="empId" name="empId" formControlName="empId"
+              placeholder="Enter Employee Id">
+          </div>
+          <div class="form-group">
+            <label for="empName">Employee Name</label>
+            <input type="text" class="form-control" id="empName" name="empName" formControlName="empName"
+              placeholder="Enter Employee Name">
+          </div>
+          <div class="form-group">
+            <label for="empPhno">Contact Number</label>
+            <input type="number" class="form-control" id="empPhno" name="empPhno" formControlName="empPhno"
+              placeholder="Enter Contact Number">
+          </div>
+          <div class="form-group">
+            <label for="empSal">Salary</label>
+            <input type="number" class="form-control" id="empSal" name="empSal" formControlName="empSal"
+              placeholder="Enter Salary">
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" class="form-control" id="jobTitle" name="jobTitle" formControlName="jobTitle"
+              placeholder="Enter Job Title">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="updatEmp()" class="btn btn-primary">Save changes
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Delete Button -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->

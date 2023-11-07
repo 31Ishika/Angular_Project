@@ -1,0 +1,24 @@
+<div class="outer-div" style="text-align: center">
+<div class="input-group" *ngIf="showForm">
+    <div class="content-header"><br>
+       <form  #EmpForm="ngForm"  (ngSubmit)="onSubmit()" >
+            <span>Employee ID:</span>
+            <input class="content" type="number" name="empId" [(ngModel)]="user.empId" placeholder="Enter Employee ID" #empId="ngModel" draggable="true" required>
+            <br><br>
+            <span>First Name:</span>
+            <input class="content" type="text" name="empName" [(ngModel)]="user.empName" placeholder="Enter First Name" #empName="ngModel" required>
+            <br><br>
+            <span>Phone Number:</span>
+            <input class="content" type="text" name="empPhno" [(ngModel)]="user.empPhno" placeholder="Enter Phone Number" #empPhno="ngModel" required>
+            <br><br>
+            <span>Salary:</span>
+            <input class="content" type="text" name="empSal" [(ngModel)]="user.empSal" placeholder="Enter Salary" #empSal="ngModel" required>
+            <br><br>
+            <span>Job Title:</span>
+            <input class="content" type="text" name="jobTitle" [(ngModel)]="user.jobTitle" placeholder="Enter Job Title" #jobTitle="ngModel" required>
+            <br><br>
+            <button [disabled]="EmpForm.invalid" id="cancel" type="submit">SUBMIT</button><br>
+        </form><br>
+    </div>
+</div>
+</div>
