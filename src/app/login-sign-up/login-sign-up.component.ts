@@ -28,18 +28,16 @@ export class LoginSignUpComponent {
   constructor(private lsdataServ: DataServiceService,private router:Router,private alertyfy : AlertyfyService) {}
 
   closeNav() {
-    // Function to close the navigation sidebar
     const sidenav = document.getElementById('mySidenav');
     if (sidenav) {
-      sidenav.style.width = '0';
+      sidenav.style.width = '60px';
     }
   }
 
   openNav() {
-    // Function to open the navigation sidebar
     const sidenav = document.getElementById('mySidenav');
     if (sidenav) {
-      sidenav.style.width = '250px';
+      sidenav.style.width = '100px';
     }
   }
   

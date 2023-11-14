@@ -49,38 +49,38 @@
 
 
 
-<div *ngIf="isSignedIn">
+<!--Final  <div *ngIf="isSignedIn">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="header-text">
     <h1>Welcome</h1>
   </div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
 
-    <ul>
-      <li><h6 routerLink="/add-employees" routerLinkActive="active">Add Employees</h6></li>
-      <li><h6  routerLink="/view-employees" routerLinkActive="active">View Employees</h6></li>
-      <li><h6 routerLink="/multiple-entries" routerLinkActive="active">Multiple Entries</h6></li>
-    </ul>
-  </div>
+  <ul>
+    <li><h6 routerLink="/add-employees" routerLinkActive="active"><i class="fa fa-user-plus"></i> Add Employees</h6></li>
+    <li><h6 routerLink="/view-employees" routerLinkActive="active"><i class="fa fa-list"></i> View Employees</h6></li>
+    <li><h6 routerLink="/multiple-entries" routerLinkActive="active"><i class="fa fa-plus"></i> Multiple Entries</h6></li> </ul>
+</div>
 
-  <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span>
+  <span style="font-size:30px;cursor:pointer"   (click)="openNav()"  >&#9776; open</span>
 
-  <!-- <div class="header-text">
-    <h1>Welcome</h1>
-  </div> -->
+
   <div class="content">
     <main role="main" class="center-content">
       <router-outlet></router-outlet>
     </main>
   </div>
-</div>
+</div> -->
 
-<script>
+
+
+<!-- <script>
   function openNav() {
     console.log('Opening Sidenav');
     const sidenav = document.getElementById('mySidenav');
     if (sidenav) {
-      sidenav.style.width = '250px';
+      sidenav.style.width = '40px';
     }
   }
 
@@ -88,7 +88,35 @@
     console.log('Closing Sidenav');
     const sidenav = document.getElementById('mySidenav');
     if (sidenav) {
-      sidenav.style.width = '0';
+      sidenav.style.width = '40px'; 
     }
   }
-</script>
+</script> -->
+<div *ngIf="isSignedIn">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="header-text">
+    <h1>Welcome</h1>
+  </div>
+<div class="sidenav">
+  <ul>
+    <li class="nav__items">
+      <i class="fa fa-user-plus">
+      <a routerLink="/add-employees" routerLinkActive="active">Add Employees</a></i>
+    </li>
+    <li class="nav__items">
+      <i class="fa fa-list">
+      <a routerLink="/view-employees" routerLinkActive="active">View Employees</a></i>
+    </li>
+    <li class="nav__items">
+      <i class="fa fa-plus">
+      <a routerLink="/multiple-entries" routerLinkActive="active">Multiple Entries</a></i>
+    </li>
+  </ul>
+</div>
+
+<div class="content">
+  <main role="main" class="center-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+</div>

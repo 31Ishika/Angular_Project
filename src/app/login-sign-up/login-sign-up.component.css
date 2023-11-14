@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 * {
 	box-sizing: border-box;
@@ -404,10 +405,11 @@ ul {
   
 
 
-  .sidenav {
-	height: 100%;
-	width: 70px;
+  /* .sidenav {
+	height: 90%;
+	width: 40px;
 	position: fixed;
+	display:table-cell;
 	z-index: 1;
 	top: 0;
 	left: 0;
@@ -415,8 +417,16 @@ ul {
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
+	overflow-y: hidden;
+	overflow-x: hidden;
   }
-  
+  .sidenav:hover{
+	height: 90%;
+	width: 100px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+  }
+
   .sidenav a {
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
@@ -441,5 +451,130 @@ ul {
   @media screen and (max-height: 450px) {
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}
+  }
+   */
+
+   /* Final */
+
+   /* .sidenav {
+    height: 90%;
+    width: 40px;
+    position: fixed; */
+    /* display: table-cell; */
+    /* z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+    overflow-y: hidden;
+}
+
+.sidenav:hover {
+    width: 100px;
+    overflow-y: scroll;
+}
+
+.sidenav a {
+	width: 40px;
+    padding: 8px 8px 8px 9px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+	white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+	width: 40px;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+	width: 40px;
+    top: 0;
+    right: 50px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+span {
+	width: 40px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+} */
+
+.sidenav {
+	height: 90%;
+	width: 50px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 7px;
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	overflow-x: hidden;
+	transition: width 0.5s;
+	padding-top: 60px;
+	overflow-y: hidden;
+  }
+  
+  .sidenav:hover {
+	width: 150px;
+	/* overflow-y: scroll; */
+  }
+  
+  .sidenav i {
+	width: 60px;
+	padding: 8px 8px 8px 8px;
+	font-size: 25px;
+	/* color: #565151; */
+	color: black;
+	display: flex;
+	/* left: 10px; */
+	align-items: center;
+	transition: 0.3s;
+	cursor: pointer;
+  }
+  
+  .sidenav:hover i {
+	color: #f1f1f1;
+	width: 150px;
+  }
+  
+  .sidenav a {
+	width: 65px;
+	padding: 8px 8px 8px 8px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #818181;
+	display: flex;
+	align-items: center;
+	/* transition: 0.3s; */
+	white-space: nowrap;
+	overflow: hidden;
+  }
+  
+  .sidenav a:hover {
+	color: #f1f1f1;
+	width: 150px;
+  }
+  
+  @media screen and (max-height: 450px) {
+	.sidenav {
+	  padding-top: 15px;
+	}
+	.sidenav a {
+	  font-size: 18px;
+	}
   }
   

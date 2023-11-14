@@ -4,6 +4,8 @@
 @import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
 @import "../node_modules/alertifyjs//build/css/themes/default.min.css";
 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 /* body{
     background-image: linear-gradient(to bottom right,
     #5dade2,
